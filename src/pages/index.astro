@@ -1,5 +1,8 @@
 ---
-
+import { Image } from "astro:assets";
+import Illustration from '../assets/illustration-article.svg'
+import Avatar from '../assets/image-avatar.webp'
+import '@fontsource-variable/figtree';
 ---
 
 <html lang="en">
@@ -10,7 +13,49 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="bg-yellow flex justify-center items-center h-dvh">
+		<main class="m-6 max-w-[383px] bg-white p-6 space-y-6 rounded-[20px] border stroke-gray-950 shadow-gray-950 shadow-[8px_8px_0px_#111111]">
+			<Image class={'illustration'} src={Illustration} alt={'illustration-article'}/>
+			<article class="space-y-3">
+				<h1 class="bg-yellow rounded text-3-bold py-1 px-3 w-fit">
+					Learning
+				</h1>
+				<h2 class="text-3">
+					Published 21 Dec 2023
+				</h2>
+				<h3 class="text-1 hover:text-yellow transition-colors cursor-pointer">
+					HTML & CSS foundations
+				</h3>
+				<p class="text-2 text-gray-500">
+					These languages are the backbone of every website, defining structure, content, and presentation.
+				</p>
+			</article>
+			<footer class="flex gap-3 items-center">
+				<Image width={32} height={32} src={Avatar} alt={'avatar'}/>
+				<p class="text-3-bold !text-sm">Greg Hooper</p>
+			</footer>
+		</main>
 	</body>
 </html>
+
+<style is:global>
+	*{
+		@apply text-gray-950;
+		font-family: 'Figtree Variable', sans-serif
+	}
+	.text-1{
+		@apply text-xl sm:text-2xl font-extrabold
+	}
+	.text-2{
+		@apply max-sm:text-sm font-medium
+	}
+	.text-3{
+		@apply text-xs sm:text-sm font-medium
+	}
+	.text-3-bold{
+		@apply text-xs sm:text-sm font-extrabold
+	}
+	.illustration{
+		@apply rounded-[10px] h-[200px] object-cover		
+	}
+</style>
